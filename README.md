@@ -15,13 +15,22 @@ npm install --save react-input-currency
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-input-currency'
+import InputCurrency from 'react-input-currency'
 
 class Example extends Component {
+  constructor() {
+    super();
+    this.state = {
+      value: '20',
+    }
+  }
   render () {
     return (
-      <MyComponent />
-    )
+      <InputCurrency 
+        value={this.state.value}
+        onChange={({ value }) => this.setState({ value })}
+      />
+    );
   }
 }
 ```
