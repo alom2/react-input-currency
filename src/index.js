@@ -5,7 +5,7 @@ import styles from './styles.css'
 
 export default class ReactInputCurrency extends Component {
   static propTypes = {
-    value: PropTypes.required.string,
+    value: PropTypes.string,
     name: PropTypes.string,
     required: PropTypes.bool,
     onChange: PropTypes.func,
@@ -66,7 +66,7 @@ export default class ReactInputCurrency extends Component {
     return <input
       className={`react-input-currency ${this.props.className}`}
       required={this.props.required}
-      value={this.props.value}
+      value={this.props.value || ''}
       name={this.props.name}
       id={this.props.id}
       onChange={this.handleOnChange}
