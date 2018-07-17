@@ -65,7 +65,10 @@ export default class ReactInputCurrency extends Component {
 
   setClassName = () => {
     const { className } = this.props;
-    return styles.InputCurrency + className ? ' ' + className : ''
+    if (!className) {
+      return styles['input-currency'];
+    }
+    return styles['input-currency'] + ' ' + className;
   }
 
   render() {
