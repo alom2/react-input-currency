@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './styles.css';
+import './styles.css';
 
 export default class ReactInputCurrency extends Component {
 
@@ -66,9 +66,9 @@ export default class ReactInputCurrency extends Component {
   setClassName = () => {
     const { className } = this.props;
     if (!className) {
-      return styles['input-currency'];
+      return 'input-currency';
     }
-    return styles['input-currency'] + ' ' + className;
+    return 'input-currency ' + className;
   }
 
   render() {
