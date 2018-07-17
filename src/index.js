@@ -31,7 +31,7 @@ export default class ReactInputCurrency extends Component {
 
     if (!value) return '';
 
-    let finalValue = value;
+    let finalValue = this.unmaskNumber(value);
     if (finalValue.length < 3) {
       if (finalValue.length === 1) finalValue = `0${decimal}0${finalValue}`;
       if (finalValue.length === 2) finalValue = `0${decimal}${finalValue}`;
@@ -63,25 +63,17 @@ export default class ReactInputCurrency extends Component {
     };
   }
 
-  /**
-   * prevents from not showing currency mask
-   */
-  setValue = value => {
-    const unmaskedValue = this.unmaskNumber(value);
-    return this.maskNumber(unmaskedValue);
-  }
-
   setClassName = () => {
     const { className } = this.props;
     return InputCurrency + className ? ' ' + className : ''
   }
 
   render() {
-    const { required, value, name, id } = this.props;
+    const { required, name, id, value } = this.props;
     return <input
       className={this.setClassName()}
       required={required}
-      value={this.setValue(value) || ''}
+      value={this.maskNumber(value)}
       name={name}
       id={id}
       onChange={this.handleOnChange}
