@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import { InputCurrency } from './styles.css';
 
 export default class ReactInputCurrency extends Component {
 
@@ -15,7 +15,6 @@ export default class ReactInputCurrency extends Component {
 
   unmaskNumber = value => {
     const replacedValue = value.replace(/[^\d]/g, '');
-    console.log(replacedValue);
     const numbers = replacedValue.split('');
     while (numbers[0] === '0') {
       numbers.shift();
@@ -72,10 +71,15 @@ export default class ReactInputCurrency extends Component {
     return this.maskNumber(unmaskedValue);
   }
 
+  setClassName = () => {
+    const { className } = this.props;
+    return InputCurrency + className ? ' ' + className : ''
+  }
+
   render() {
-    const { className, required, value, name, id } = this.props;
+    const { required, value, name, id } = this.props;
     return <input
-      className={`react-input-currency${className ? ' ' + className : ''}`}
+      className={this.setClassName()}
       required={required}
       value={this.setValue(value) || ''}
       name={name}
