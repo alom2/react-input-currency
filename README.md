@@ -49,7 +49,7 @@ If you want the text aligned right:
 ## Props
 
 | Parameter | Type | Description |
-|:---| |:---| |:---|
+|:---|:---|:---|
 | value |  string/number | Field value. |
 | id |  string | Field id. |
 | name |  string | Field name.  |
@@ -60,7 +60,7 @@ If you want the text aligned right:
 ## Mask props
 
 | Parameter | Default | Type |
-|:---| |:---| |:---|
+|:---|:---|:---|
 | decimal | . |  string |
 | prefix | $ |  string |
 | thousands | , |  string |
