@@ -23,10 +23,14 @@ export default {
   ],
   plugins: [
     external(),
-    postcss(),
+    postcss({
+      namedExports: function(name) {
+        return name;
+      }
+    }),
     url(),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
     resolve(),
     commonjs()
