@@ -23,11 +23,7 @@ export default {
   ],
   plugins: [
     external(),
-    postcss({
-      namedExports: function(name) {
-        return name;
-      }
-    }),
+    postcss({}),
     url(),
     babel({
       exclude: 'node_modules/**',

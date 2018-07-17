@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
-
 export default class ReactInputCurrency extends Component {
 
   static propTypes = {
@@ -63,18 +61,10 @@ export default class ReactInputCurrency extends Component {
     };
   }
 
-  setClassName = () => {
-    const { className } = this.props;
-    if (!className) {
-      return 'input-currency';
-    }
-    return 'input-currency ' + className;
-  }
-
   render() {
-    const { required, name, id, value } = this.props;
+    const { required, className, name, id, value } = this.props;
     return <input
-      className={this.setClassName()}
+      className={className || ''}
       required={required}
       value={this.maskNumber(value)}
       name={name}
